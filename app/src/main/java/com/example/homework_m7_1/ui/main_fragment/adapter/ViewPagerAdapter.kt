@@ -1,9 +1,11 @@
-package com.example.homework_m7_1
+package com.example.homework_m7_1.ui.main_fragment.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
+import com.example.homework_m7_1.ui.Cameras.CameraFragment
+import com.example.homework_m7_1.ui.Doors.DoorsFragment
 
 class ViewPagerAdapter(
     val fragmentManager: FragmentManager,
@@ -11,7 +13,7 @@ class ViewPagerAdapter(
 ) : FragmentStateAdapter(fragmentManager, lifecycle) {
 
     private val fragments = listOf(
-        CameraFragment(),DoorsFragment()
+        CameraFragment(), DoorsFragment()
     )
     override fun getItemCount() = fragments.size
 

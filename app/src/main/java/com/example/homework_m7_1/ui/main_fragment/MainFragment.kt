@@ -1,14 +1,17 @@
-package com.example.homework_m7_1
+package com.example.homework_m7_1.ui.main_fragment
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.example.homework_m7_1.ui.main_fragment.adapter.ViewPagerAdapter
 import com.example.homework_m7_1.databinding.FragmentMainBinding
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
 

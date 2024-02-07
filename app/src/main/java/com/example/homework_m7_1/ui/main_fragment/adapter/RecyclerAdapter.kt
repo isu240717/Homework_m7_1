@@ -1,41 +1,41 @@
-package com.example.homework_m7_1
+package com.example.homework_m7_1.ui.main_fragment.adapter
 
-import android.animation.ValueAnimator
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.RecyclerView.Adapter
-import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.homework_m7_1.databinding.ItemCameraBinding
+import com.example.homework_m7_1.models.Data
 
-class RecyclerAdapter(private var list: ArrayList<ItemModel>) : Adapter<RecuclerViewHolder>() {
-
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecuclerViewHolder {
-        return RecuclerViewHolder(
+class RecyclerAdapter(private val isDoor : Boolean) :
+    ListAdapter<Data, RecyclerViewHolder>(CameraDiffUtil()) {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder =
+        RecyclerViewHolder(
             ItemCameraBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
-            )
+            ), isDoor
+
         )
+
+    override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
+        holder.bind(getItem(position))
     }
 
-    override fun getItemCount() = list.size
-
-    override fun onBindViewHolder(holder: RecuclerViewHolder, position: Int) {
-        holder.bind(list[position])
-    }
 
 }
 
-class RecuclerViewHolder(private var binding: ItemCameraBinding) : ViewHolder(binding.root) {
+class RecyclerViewHolder(private var binding: ItemCameraBinding, private val isDoor: Boolean) :
+    RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(itemModel: ItemModel) = with(binding) {
-        iv.load(itemModel.image)
-        tv.text = itemModel.text
+    fun bind(camera: Data) = with(binding) {
+        ivLock.visibility = if (isDoor) View.VISIBLE else View.GONE
+        iv.load(camera.snapshot)
+        tv.text = camera.name
         tv.setOnClickListener {
             if (binding.iv.visibility == View.GONE) {
                 slideOutViews(binding.iv)
@@ -75,6 +75,15 @@ class RecuclerViewHolder(private var binding: ItemCameraBinding) : ViewHolder(bi
         }
     }
 }
+
+class CameraDiffUtil : DiffUtil.ItemCallback<Data>() {
+    override fun areItemsTheSame(oldItem: Data, newItem: Data)= oldItem.id == newItem.id
+
+
+    override fun areContentsTheSame(oldItem: Data, newItem: Data) = oldItem == newItem
+
+}
+
 
 /*    private lateinit var valueAnimator: ValueAnimator
     private fun animationUp() {

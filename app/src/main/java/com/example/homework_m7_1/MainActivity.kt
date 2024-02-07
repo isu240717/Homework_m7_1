@@ -2,9 +2,10 @@ package com.example.homework_m7_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.LayoutInflater
-import com.example.homework_m7_1.databinding.ActivityMainBinding
+import com.example.homework_m7_1.ui.main_fragment.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
 

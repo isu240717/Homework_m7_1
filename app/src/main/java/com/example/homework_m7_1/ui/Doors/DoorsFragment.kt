@@ -9,13 +9,14 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.homework_m7_1.base.BaseFragment
 import com.example.homework_m7_1.data.Resource
 import com.example.homework_m7_1.databinding.FragmentDoorsBinding
 import com.example.homework_m7_1.ui.main_fragment.adapter.RecyclerAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class DoorsFragment : Fragment() {
+class DoorsFragment : BaseFragment() {
 
     private lateinit var binding: FragmentDoorsBinding
     private val viewModel: DoorViewModel by viewModels()
@@ -33,32 +34,12 @@ class DoorsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getDoors().observe(requireActivity()) {
-            when (it) {
-                is Resource.Error -> {
-                    binding.progressBar.isVisible = false
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_SHORT).show()
-                }
 
-                is Resource.Loading -> {
-                    binding.progressBar.isVisible = true
-                }
-
-                is Resource.Success -> {
-                    binding.progressBar.isVisible = false
-                    adapter.submitList(it.data)
-                }
-            }
-            setupCharactersRecycler()
-        }
-    }
-
-    private fun setupCharactersRecycler() = with(binding) {
-        rvDoors.layoutManager = LinearLayoutManager(
-            requireContext(),
-            LinearLayoutManager.VERTICAL,
-            false
+        viewModel.getDoors().stateHandler(
+            success = { adapter.submitList(it.data) }
         )
-        rvDoors.adapter = adapter
+        binding.rvDoors.adapter = adapter
     }
+
+
 }

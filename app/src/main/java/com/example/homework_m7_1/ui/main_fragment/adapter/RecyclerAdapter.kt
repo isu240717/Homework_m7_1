@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.homework_m7_1.databinding.ItemCameraBinding
+import com.example.homework_m7_1.models.CameraModel
 import com.example.homework_m7_1.models.Data
 
 class RecyclerAdapter(private val isDoor : Boolean) :
-    ListAdapter<Data, RecyclerViewHolder>(CameraDiffUtil()) {
+    ListAdapter<CameraModel.Data.Camera, RecyclerViewHolder>(CameraDiffUtil()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerViewHolder =
         RecyclerViewHolder(
             ItemCameraBinding.inflate(
@@ -32,7 +33,7 @@ class RecyclerAdapter(private val isDoor : Boolean) :
 class RecyclerViewHolder(private var binding: ItemCameraBinding, private val isDoor: Boolean) :
     RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(camera: Data) = with(binding) {
+    fun bind(camera: CameraModel.Data.Camera) = with(binding) {
         ivLock.visibility = if (isDoor) View.VISIBLE else View.GONE
         iv.load(camera.snapshot)
         tv.text = camera.name
@@ -76,11 +77,11 @@ class RecyclerViewHolder(private var binding: ItemCameraBinding, private val isD
     }
 }
 
-class CameraDiffUtil : DiffUtil.ItemCallback<Data>() {
-    override fun areItemsTheSame(oldItem: Data, newItem: Data)= oldItem.id == newItem.id
+class CameraDiffUtil : DiffUtil.ItemCallback<CameraModel.Data.Camera>() {
+    override fun areItemsTheSame(oldItem: CameraModel.Data.Camera, newItem: CameraModel.Data.Camera)= oldItem.id == newItem.id
 
 
-    override fun areContentsTheSame(oldItem: Data, newItem: Data) = oldItem == newItem
+    override fun areContentsTheSame(oldItem: CameraModel.Data.Camera, newItem: CameraModel.Data.Camera) = oldItem == newItem
 
 }
 

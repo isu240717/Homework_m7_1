@@ -4,8 +4,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.homework_m7_1.ui.Cameras.CameraFragment
-import com.example.homework_m7_1.ui.Doors.DoorsFragment
+import com.example.homework_m7_1.ui.cameras.CameraFragment
+import com.example.homework_m7_1.ui.doors.DoorsFragment
 
 class ViewPagerAdapter(
     val fragmentManager: FragmentManager,

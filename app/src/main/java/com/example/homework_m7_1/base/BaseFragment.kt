@@ -1,5 +1,6 @@
 package com.example.homework_m7_1.base
 
+import android.util.Log
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import com.example.homework_m7_1.data.Resource
@@ -16,6 +17,7 @@ abstract class BaseFragment : Fragment() {
             when(res){
                 is Resource.Error ->{
                     this@BaseFragment.showToast(res.message!!)
+                    Log.e("ololo", "stateHandler: ${res.message}" )
                 }
                 is Resource.Loading ->{}
                 is Resource.Success ->{

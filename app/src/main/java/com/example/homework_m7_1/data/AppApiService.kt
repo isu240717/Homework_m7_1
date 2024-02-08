@@ -1,15 +1,14 @@
 package com.example.homework_m7_1.data
 
-import com.example.homework_m7_1.models.BaseResponse
-import com.example.homework_m7_1.models.Data
-import com.example.homework_m7_1.models.SystemModel
+import com.example.homework_m7_1.models.CameraModel
+import com.example.homework_m7_1.models.DoorModel
 import retrofit2.Response
 import retrofit2.http.GET
 
 interface AppApiService {
     @GET("cameras/")
-    fun getCameras(): Response<BaseResponse<SystemModel>>
+    suspend fun getCameras(): Response<CameraModel>
 
     @GET("doors/")
-    fun getDoors(): Response<BaseResponse<List<Data>>>
+    suspend fun getDoors(): Response<DoorModel>
 }

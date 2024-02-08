@@ -1,5 +1,6 @@
 package com.example.homework_m7_1.di
 
+import com.example.homework_m7_1.BuildConfig
 import com.example.homework_m7_1.data.AppApiService
 import com.google.gson.internal.GsonBuildConfig
 import dagger.Module
@@ -24,7 +25,7 @@ object AppModule {
     ): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl("http://cars.cprogroup.ru/api/rubetek/")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(okHttpClient)
             .build()
     }

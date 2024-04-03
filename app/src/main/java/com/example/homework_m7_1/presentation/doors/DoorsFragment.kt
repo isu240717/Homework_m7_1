@@ -1,4 +1,4 @@
-package com.example.homework_m7_1.ui.doors
+package com.example.homework_m7_1.presentation.doors
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.homework_m7_1.base.BaseFragment
 import com.example.homework_m7_1.databinding.FragmentDoorsBinding
-import com.example.homework_m7_1.ui.main_fragment.adapter.DoorAdapter
+import com.example.homework_m7_1.presentation.main_fragment.adapter.DoorAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

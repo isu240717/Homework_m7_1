@@ -2,7 +2,7 @@ package com.example.homework_m7_1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.homework_m7_1.ui.main_fragment.MainFragment
+import com.example.homework_m7_1.presentation.main_fragment.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

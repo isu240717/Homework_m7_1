@@ -1,4 +1,4 @@
-package com.example.homework_m7_1.ui.main_fragment.adapter
+package com.example.homework_m7_1.presentation.main_fragment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -8,8 +8,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.example.homework_m7_1.databinding.ItemCameraBinding
-import com.example.homework_m7_1.models.CameraModel
-import com.example.homework_m7_1.models.Data
+import com.example.homework_m7_1.data.models.CameraModel
+import com.example.homework_m7_1.data.models.Data
 
 class RecyclerAdapter(private val isDoor : Boolean) :
     ListAdapter<CameraModel.Data.Camera, RecyclerViewHolder>(CameraDiffUtil()) {

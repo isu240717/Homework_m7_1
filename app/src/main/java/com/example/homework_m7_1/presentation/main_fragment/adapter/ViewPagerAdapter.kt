@@ -1,11 +1,11 @@
-package com.example.homework_m7_1.ui.main_fragment.adapter
+package com.example.homework_m7_1.presentation.main_fragment.adapter
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.Lifecycle
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.homework_m7_1.ui.cameras.CameraFragment
-import com.example.homework_m7_1.ui.doors.DoorsFragment
+import com.example.homework_m7_1.presentation.cameras.CameraFragment
+import com.example.homework_m7_1.presentation.doors.DoorsFragment
 
 class ViewPagerAdapter(
     val fragmentManager: FragmentManager,

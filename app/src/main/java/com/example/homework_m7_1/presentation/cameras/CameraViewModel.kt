@@ -1,12 +1,10 @@
-package com.example.homework_m7_1.ui.cameras
+package com.example.homework_m7_1.presentation.cameras
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.homework_m7_1.data.Repository
+import com.example.homework_m7_1.domain.Repository
 import com.example.homework_m7_1.data.Resource
-import com.example.homework_m7_1.models.BaseResponse
-import com.example.homework_m7_1.models.CameraModel
-import com.example.homework_m7_1.models.SystemModel
+import com.example.homework_m7_1.data.models.CameraModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

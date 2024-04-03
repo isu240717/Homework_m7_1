@@ -1,4 +1,4 @@
-package com.example.homework_m7_1.ui.main_fragment.adapter
+package com.example.homework_m7_1.presentation.main_fragment.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.RecyclerView.Adapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import coil.load
 import com.example.homework_m7_1.databinding.ItemCameraBinding
-import com.example.homework_m7_1.models.DoorModel
+import com.example.homework_m7_1.data.models.DoorModel
 
 class DoorAdapter() : Adapter<DoorAdapter.DoorViewHolder>() {
     private var list = listOf<DoorModel.Data>()
@@ -43,7 +43,7 @@ class DoorAdapter() : Adapter<DoorAdapter.DoorViewHolder>() {
                 tv.setOnClickListener {
                     if (binding.iv.visibility == View.GONE) {
                         iv.visibility = View.VISIBLE
-                    } else {
+                    } else if (binding.iv.visibility == View.VISIBLE){
                         iv.visibility == View.GONE
                     }
                 }

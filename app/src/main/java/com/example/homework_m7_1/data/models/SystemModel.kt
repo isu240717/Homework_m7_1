@@ -1,4 +1,4 @@
-package com.example.homework_m7_1.models
+package com.example.homework_m7_1.data.models
 
 data class SystemModel(
     val room: List<String>? = null,
